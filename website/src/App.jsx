@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { BookOpen, Settings, Zap, Terminal, Github, ArrowLeft, ArrowRight, Code, User, Menu, X, ChevronRight, Cloud, Sparkles } from 'lucide-react';
+import { BookOpen, Settings, Zap, Terminal, Github, ArrowLeft, ArrowRight, Code, User, Menu, X, ChevronRight, Cloud, Sparkles, List, ChevronDown, ChevronUp } from 'lucide-react';
 
 const allDocs = [
   { id: 'setup', title: 'Getting Started', icon: <Settings size={20} />, path: '/docs/setup.md', category: 'key', description: 'Download Antigravity and start building with AI' },
@@ -23,6 +23,8 @@ function App() {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [tocOpen, setTocOpen] = useState(false);
+  const [headings, setHeadings] = useState([]);
 
   const currentIndex = allDocs.findIndex(d => d.id === activeDoc);
   const nextDoc = currentIndex < allDocs.length - 1 ? allDocs[currentIndex + 1] : null;
@@ -38,6 +40,21 @@ function App() {
           const response = await fetch(doc.path);
           const text = await response.text();
           setContent(text);
+
+          // Extract headings
+          const extractedHeadings = [];
+          const lines = text.split('\n');
+          lines.forEach(line => {
+            const match = line.trim().match(/^(#{1,3})\s+(.*)$/);
+            if (match) {
+              extractedHeadings.push({
+                level: match[1].length,
+                text: match[2],
+                id: match[2].toLowerCase().replace(/[^\w]+/g, '-')
+              });
+            }
+          });
+          setHeadings(extractedHeadings);
         } catch (err) {
           setContent('# Error loading documentation');
         }
@@ -45,6 +62,7 @@ function App() {
       };
       fetchDoc();
       setSidebarOpen(false);
+      setTocOpen(false); // Default closed on mobile, logic handled in CSS/JS
     }
   }, [activeDoc]);
 
@@ -107,6 +125,31 @@ function App() {
               Back to Home
             </div>
 
+            <div className="mobile-toc-toggle" onClick={() => setTocOpen(!tocOpen)}>
+              <List size={16} />
+              <span>On this page</span>
+              {tocOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </div>
+
+            {tocOpen && (
+              <div className="mobile-toc">
+                {headings.map((heading, index) => (
+                  <a
+                    key={index}
+                    href={`#${heading.id}`}
+                    className={`toc-link level-${heading.level}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setTocOpen(false);
+                      document.getElementById(heading.id)?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    {heading.text}
+                  </a>
+                ))}
+              </div>
+            )}
+
             <div className="markdown-container">
               {loading ? (
                 <div style={{ opacity: 0.5 }}>Loading...</div>
@@ -117,7 +160,19 @@ function App() {
                       inline ?
                         <code className="inline-code" {...props}>{children}</code> :
                         <code {...props}>{children}</code>
-                    )
+                    ),
+                    h1: ({ children }) => {
+                      const id = String(children).toLowerCase().replace(/[^\w]+/g, '-');
+                      return <h1 id={id}>{children}</h1>;
+                    },
+                    h2: ({ children }) => {
+                      const id = String(children).toLowerCase().replace(/[^\w]+/g, '-');
+                      return <h2 id={id}>{children}</h2>;
+                    },
+                    h3: ({ children }) => {
+                      const id = String(children).toLowerCase().replace(/[^\w]+/g, '-');
+                      return <h3 id={id}>{children}</h3>;
+                    }
                   }}
                 >
                   {content}
@@ -146,6 +201,25 @@ function App() {
               )}
             </div>
           </div>
+
+          <aside className="doc-toc-sidebar">
+            <div className="toc-heading">On this page</div>
+            <div className="toc-list">
+              {headings.map((heading, index) => (
+                <a
+                  key={index}
+                  href={`#${heading.id}`}
+                  className={`toc-link level-${heading.level}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById(heading.id)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  {heading.text}
+                </a>
+              ))}
+            </div>
+          </aside>
         </div>
 
         <footer className="footer">

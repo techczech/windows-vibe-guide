@@ -306,6 +306,14 @@ pre {
   font-size: 0.9rem;
 }
 
+.markdown-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border-color);
+}
+
 code {
   font-family: 'Fira Code', 'Consolas', monospace;
 }
@@ -431,5 +439,132 @@ code {
 
   .nav-button.next {
     margin-left: 0;
+  }
+}
+
+/* TOC Sidebar */
+.doc-toc-sidebar {
+  width: 240px;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  flex-shrink: 0;
+  border-left: 1px solid var(--border-color);
+  display: block;
+}
+
+.toc-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.toc-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+  display: block;
+  line-height: 1.4;
+}
+
+.toc-link:hover {
+  color: var(--text-primary);
+  background: var(--accent-glow);
+}
+
+.toc-link.level-1 {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.toc-link.level-2 {
+  padding-left: 1.25rem;
+}
+
+.toc-link.level-3 {
+  padding-left: 2rem;
+}
+
+/* Mobile TOC */
+.mobile-toc-toggle {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.mobile-toc-toggle:hover {
+  border-color: var(--accent-color);
+  background: var(--accent-glow);
+  color: var(--accent-color);
+}
+
+.mobile-toc {
+  background: var(--bg-color);
+  /* Matches page bg to look embedded */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+.mobile-toc .toc-link {
+  border-bottom: 1px solid transparent;
+}
+
+.mobile-toc .toc-link:hover {
+  background: var(--accent-glow);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .doc-toc-sidebar {
+    display: none;
+  }
+
+  .mobile-toc-toggle {
+    display: flex;
+  }
+
+  .doc-view {
+    padding-right: 2rem;
+    /* Restore padding that might look weird if right sidebar gone */
   }
 }

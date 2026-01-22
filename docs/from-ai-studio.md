@@ -1,4 +1,4 @@
-# From Google AI Studio to Your Computer 🚀
+# Migrating from Google AI Studio to Your Computer 🚀
 
 Google AI Studio is a great place to prototype AI-powered apps. But at some point, you'll want to:
 - Run your app on your own computer
@@ -30,7 +30,7 @@ When you're happy with it, move to the next step.
 
 ## Step 2: Download the Code
 
-In Google AI Studio, look for the **Download** or **Export** option. Your project will download as a single `.zip` file containing all the code.
+In Google AI Studio, look for the **Download** button. Your project will download as a single `.zip` file containing all the code.
 
 Save this file somewhere you can find it (like your Downloads folder).
 

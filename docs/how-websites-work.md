@@ -1,4 +1,4 @@
-# How Websites Run on Your Computer 🖥️
+# How Webapps Run on Your Computer 🖥️
 
 Before you can build websites, it helps to understand how they actually work. Don't worry—this is simpler than it sounds.
 

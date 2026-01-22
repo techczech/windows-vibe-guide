@@ -27,6 +27,8 @@ The agent will:
 
 Watch what it's doing. You'll learn from seeing the process.
 
+![Example of adding a feature with Antigravity](/images/toc-feature-example.png)
+
 ### 3. Test and Verify
 After major changes:
 - Check your browser (refresh if needed)
