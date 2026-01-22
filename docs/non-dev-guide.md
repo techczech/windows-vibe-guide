@@ -1,6 +1,6 @@
 # The Non-Developer's Guide to AI Web Building on Windows 🤖✨
 
-**Welcome!** This guide is designed for anyone who wants to build and publish websites on Windows using AI, *without* needing to understand complex code or terminal commands.
+**Welcome!** This guide is designed for anyone who wants to build, publish, and share websites on Windows using AI, *without* needing to understand complex code or terminal commands.
 
 If you can chat, you can build.
 
@@ -20,7 +20,7 @@ Building with AI isn't magic; it's a partnership. Throughout this project, we le
 
 ## 🛠️ The One-Time Setup (Do This First)
 
-To let the AI build for you on Windows, you need three tools. You only need to install these once.
+To let the AI build for you on Windows, you need four tools. You only need to install these once.
 
 ### 1. The "Magic Manager" (Volta)
 Windows handles files differently than other computers, which often confuses coding tools. **Volta** fixes this.
@@ -31,23 +31,41 @@ Windows handles files differently than other computers, which often confuses cod
 ### 2. The "Brain" (Node.js)
 This is the engine that runs the code the AI writes.
 
-*   **The Command:** Open your computer's **Terminal** (search for "Terminal" in your Start menu) and type this exactly:
+*   **The Command:** Open your computer's **Terminal** (search for "Terminal" in your Start menu) and run:
     ```powershell
     volta install node@22
     ```
-    *Press Enter. If you see text appearing, it's working!*
 
 ### 3. The "Publisher" (Wrangler)
 This tool sends your website to the internet (Cloudflare).
 
-*   **The Command:** In the same Terminal, type:
+*   **The Command:** In the same Terminal, run:
     ```powershell
     volta install wrangler
     ```
 
+### 4. The "Sharer" (GitHub CLI)
+This lets you share your code with the world without clicking through complex websites.
+
+*   **The Command:** In the same Terminal, run:
+    ```powershell
+    winget install GitHub.cli
+    ```
+    *   After checking the installation (`gh --version`), run `gh auth login` and follow the prompts to connect it to your account.
+
 ---
 
-## 🚀 How to Build & Publish (The "Vibe" Workflow)
+## ⚡ Pro Mode: Use WSL (Recommended)
+
+If you have a Surface Pro X or any **ARM-based Windows laptop**, or just want the smoothest experience, use **WSL (Windows Subsystem for Linux)**.
+
+1.  Open Terminal and run: `wsl --install`
+2.  This gives you a "Linux brain" inside Windows, which is what most AI tools prefer.
+3.  All the commands below work even better inside the WSL terminal.
+
+---
+
+## 🚀 How to Build, Share & Publish (The "Vibe" Workflow)
 
 Now you are ready. Here is the exact loop we used to build this site:
 
@@ -64,19 +82,25 @@ The agent will write code. It might try to run commands.
 *   **If it fails:** It's common on Windows. The agent might say "EPERM" or "File Locked."
     *   **Your Move:** Tell it: *"I see a file lock error. Please give me the command to run in my own terminal."*
 
-### Step 4: The "Deployment" (Going Live)
-When you are happy with the site, tell the agent: *"I want to publish this to Cloudflare."*
+### Step 4: Share Your Code (GitHub)
+When your project is ready, you don't need to go to github.com. Just use the agent or the terminal:
+```powershell
+gh repo create my-website --public --source=. --remote=origin --push
+```
+*   *This one command creates the online folder, links it, and uploads your code.*
+
+### Step 5: Publish to the World (Cloudflare)
+When you want to go live, tell the agent: *"I want to publish this to Cloudflare."*
 
 On Windows, the agent usually cannot publish it alone because of security permissions. **You have to be the closer.**
 
-1.  Open your **Terminal** (outside the AI).
-2.  Type `cd` and drag the folder of your website into the terminal window to go there.
-3.  Run this "Magic Command":
+1.  Open your **Terminal** (drag the folder of your website into the terminal window).
+2.  Run this "Magic Command":
     ```powershell
     npx wrangler pages deploy ./dist
     ```
-4.  A browser window will open. Click "Allow" to log in to Cloudflare.
-5.  **Done!** Your site is now live on the internet.
+3.  A browser window will open. Click "Allow" to log in to Cloudflare.
+4.  **Done!** Your site is now live on the internet.
 
 ---
 
@@ -85,9 +109,9 @@ On Windows, the agent usually cannot publish it alone because of security permis
 *   **Error: "File Locked" or "EPERM"**
     *   *Solution:* This means Windows Defender or another program is holding onto a file. Close any other VS Code windows and try again.
 *   **Error: "Command not found"**
-    *   *Solution:* You might need to restart your computer after installing Volta.
+    *   *Solution:* You might need to restart your computer after installing Volta or GitHub CLI.
 *   **Agent gets stuck looping?**
-    *   *Solution:* Tell it: *"Stop everything. Search online for this specific error message."*
+    *   *Solution:* Tell it: *"Stop everything. Search online for this specific error message."* or switch the model you are using.
 
 ---
 
