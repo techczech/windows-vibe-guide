@@ -4,6 +4,7 @@ import { BookOpen, Settings, Zap, Terminal, Github } from 'lucide-react';
 
 const docs = [
   { id: 'readme', title: 'Welcome', icon: <BookOpen size={20} />, path: '/docs/readme.md' },
+  { id: 'non-dev', title: 'Non-Dev Guide (Windows)', icon: <Terminal size={20} />, path: '/docs/non-dev-guide.md' },
   { id: 'setup', title: 'Setup Guide', icon: <Settings size={20} />, path: '/docs/setup.md' },
   { id: 'workflow', title: 'Vibe Workflows', icon: <Zap size={20} />, path: '/docs/workflow.md' },
 ];
@@ -38,7 +39,7 @@ function App() {
           </div>
           <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.5px' }}>VIBE GUIDE</span>
         </div>
-        
+
         <div style={{ flex: 1 }}>
           {docs.map(doc => (
             <div
@@ -52,9 +53,9 @@ function App() {
           ))}
         </div>
 
-        <a 
-          href="https://github.com" 
-          target="_blank" 
+        <a
+          href="https://github.com"
+          target="_blank"
           className="nav-item"
           style={{ textDecoration: 'none', marginTop: 'auto' }}
         >
@@ -70,9 +71,9 @@ function App() {
           ) : (
             <ReactMarkdown
               components={{
-                h1: ({node, ...props}) => <h1 {...props} />,
-                h2: ({node, ...props}) => <h2 {...props} />,
-                code: ({node, inline, ...props}) => (
+                h1: ({ node, ...props }) => <h1 {...props} />,
+                h2: ({ node, ...props }) => <h2 {...props} />,
+                code: ({ node, inline, ...props }) => (
                   inline ? <code style={{ background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px' }} {...props} /> : <code {...props} />
                 )
               }}
@@ -81,7 +82,7 @@ function App() {
             </ReactMarkdown>
           )}
         </div>
-        
+
         <footer style={{ marginTop: '4rem', padding: '2rem 0', borderTop: '1px solid var(--border-color)', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
           &copy; 2026 Windows Vibe Coding Setup. Powered by Antigravity.
         </footer>
