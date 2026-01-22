@@ -47,11 +47,17 @@ This tool sends your website to the internet (Cloudflare).
 ### 4. The "Sharer" (GitHub CLI)
 This lets you share your code with the world without clicking through complex websites.
 
-*   **The Command:** In the same Terminal, run:
+*   **Install:** In the same Terminal, run:
     ```powershell
     winget install GitHub.cli
     ```
-    *   After checking the installation (`gh --version`), run `gh auth login` and follow the prompts to connect it to your account.
+*   **Authenticate:** After installing, restart your terminal and run:
+    ```powershell
+    gh auth login
+    ```
+    *   Select **GitHub.com** -> **HTTPS** -> **Yes** -> **Login with a web browser**.
+    *   Copy the one-time code it shows you.
+    *   Press **Enter** to open the browser, paste the code, and click **Authorize**.
 
 ---
 

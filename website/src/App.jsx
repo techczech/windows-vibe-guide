@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { BookOpen, Settings, Zap, Terminal, Github } from 'lucide-react';
+import { BookOpen, Settings, Zap, Terminal, Github, Bot } from 'lucide-react';
 
 const docs = [
   { id: 'readme', title: 'Welcome', icon: <BookOpen size={20} />, path: '/docs/readme.md' },
   { id: 'non-dev', title: 'Non-Dev Guide (Windows)', icon: <Terminal size={20} />, path: '/docs/non-dev-guide.md' },
+  { id: 'agents', title: 'AI Agents', icon: <Bot size={20} />, path: '/docs/agents.md' },
   { id: 'setup', title: 'Setup Guide', icon: <Settings size={20} />, path: '/docs/setup.md' },
   { id: 'workflow', title: 'Vibe Workflows', icon: <Zap size={20} />, path: '/docs/workflow.md' },
 ];
@@ -54,7 +55,7 @@ function App() {
         </div>
 
         <a
-          href="https://github.com"
+          href="https://github.com/techczech/windows-vibe-guide"
           target="_blank"
           className="nav-item"
           style={{ textDecoration: 'none', marginTop: 'auto' }}
