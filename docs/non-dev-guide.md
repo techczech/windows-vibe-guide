@@ -20,7 +20,7 @@ Building with AI isn't magic; it's a partnership. Throughout this project, we le
 
 ## 🛠️ The One-Time Setup (Do This First)
 
-To let the AI build for you on Windows, you need four tools. You only need to install these once.
+To let the AI build for you on Windows, you need four tools. You only need to install these once. You can ask the Agent inside Antigravity to install them for you but it may be quicker to do it yourself.
 
 ### 1. The "Magic Manager" (Volta)
 Windows handles files differently than other computers, which often confuses coding tools. **Volta** fixes this.
