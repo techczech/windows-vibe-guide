@@ -3,16 +3,16 @@ import ReactMarkdown from 'react-markdown';
 import { BookOpen, Settings, Zap, Terminal, Github, ArrowLeft, ArrowRight, Code, User, Menu, X, ChevronRight, Cloud, Sparkles } from 'lucide-react';
 
 const allDocs = [
-  { id: 'setup', title: 'Getting Started', icon: <Settings size={20} />, path: '/docs/setup.md', category: 'key' },
-  { id: 'non-dev', title: 'Complete Walkthrough', icon: <BookOpen size={20} />, path: '/docs/non-dev-guide.md', category: 'key' },
-  { id: 'workflow', title: 'Working with Agents', icon: <Zap size={20} />, path: '/docs/workflow.md', category: 'key' },
-  { id: 'how-websites', title: 'How Webapps Run on Your Computer', icon: <Code size={20} />, path: '/docs/how-websites-work.md', category: 'useful' },
-  { id: 'hosting', title: 'Webapp Hosting', icon: <Cloud size={20} />, path: '/docs/webapp-hosting.md', category: 'useful' },
-  { id: 'ai-features', title: 'Adding AI Features', icon: <Sparkles size={20} />, path: '/docs/adding-ai-features.md', category: 'useful' },
-  { id: 'ai-studio', title: 'Migrating from Google AI Studio', icon: <Zap size={20} />, path: '/docs/from-ai-studio.md', category: 'useful' },
-  { id: 'git-github', title: 'Git & GitHub', icon: <Github size={20} />, path: '/docs/git-github-basics.md', category: 'useful' },
-  { id: 'markdown', title: 'Markdown for Writers', icon: <BookOpen size={20} />, path: '/docs/markdown-for-writers.md', category: 'useful' },
-  { id: 'about', title: 'About', icon: <User size={20} />, path: '/docs/about.md', category: 'other' },
+  { id: 'setup', title: 'Getting Started', icon: <Settings size={20} />, path: '/docs/setup.md', category: 'key', description: 'Download Antigravity and start building with AI' },
+  { id: 'non-dev', title: 'Complete Walkthrough', icon: <BookOpen size={20} />, path: '/docs/non-dev-guide.md', category: 'key', description: 'Step-by-step guide for complete beginners' },
+  { id: 'workflow', title: 'Working with Agents', icon: <Zap size={20} />, path: '/docs/workflow.md', category: 'key', description: 'Best practices for AI collaboration' },
+  { id: 'how-websites', title: 'How Webapps Run on Your Computer', icon: <Code size={20} />, path: '/docs/how-websites-work.md', category: 'useful', description: 'Understand browsers, servers, and React' },
+  { id: 'hosting', title: 'Webapp Hosting', icon: <Cloud size={20} />, path: '/docs/webapp-hosting.md', category: 'useful', description: 'Free hosting guidelines for your webapps' },
+  { id: 'ai-features', title: 'Adding AI Features', icon: <Sparkles size={20} />, path: '/docs/adding-ai-features.md', category: 'useful', description: 'Power your apps with Google\'s AI' },
+  { id: 'ai-studio', title: 'Migrating from Google AI Studio', icon: <Zap size={20} />, path: '/docs/from-ai-studio.md', category: 'useful', description: 'Migrate prototypes to local development' },
+  { id: 'git-github', title: 'Git & GitHub', icon: <Github size={20} />, path: '/docs/git-github-basics.md', category: 'useful', description: 'Version control and backing up code' },
+  { id: 'markdown', title: 'Markdown for Writers', icon: <BookOpen size={20} />, path: '/docs/markdown-for-writers.md', category: 'useful', description: 'Write text better than in Word' },
+  { id: 'about', title: 'About', icon: <User size={20} />, path: '/docs/about.md', category: 'other', description: 'How this website was created' },
 ];
 
 const keyDocs = allDocs.filter(d => d.category === 'key');
@@ -191,6 +191,7 @@ function App() {
                 {React.cloneElement(doc.icon, { size: 24 })}
               </div>
               <h3>{doc.title}</h3>
+              <p>{doc.description}</p>
             </div>
           ))}
         </div>
@@ -205,6 +206,7 @@ function App() {
                 {React.cloneElement(doc.icon, { size: 24 })}
               </div>
               <h3>{doc.title}</h3>
+              <p>{doc.description}</p>
             </div>
           ))}
         </div>
