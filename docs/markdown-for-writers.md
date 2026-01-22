@@ -8,22 +8,20 @@ If you've ever used Microsoft Word, you know the frustration: files get corrupte
 
 ## Why Markdown Beats Word
 
-| Feature | Microsoft Word | Markdown |
-|---------|---------------|----------|
-| **File format** | Proprietary `.docx` | Plain text `.md` |
-| **Readability** | Requires Word to open | Readable in any text editor |
-| **Versioning** | Track Changes (messy) | Git (clean, complete history) |
-| **Convert to website** | Export → hope it works | Built for the web |
-| **File size** | Large (embedded images, fonts) | Tiny (just text) |
-| **Collaboration** | One person at a time (or conflicts) | Multiple people, merge changes |
+### It's Just Text
+A Word file is a complex format that can only be properly opened in Word (or compatible programs). A Markdown file is plain text—you can open it in Notepad, on your phone, or in 100 years with whatever exists then.
 
-### The Big Wins
+### Perfect for Websites
+This entire documentation site is written in Markdown. The AI agent converted it into a website automatically. Try doing that with a Word document.
 
-1. **It's just text.** You can open a Markdown file in 100 years and still read it. Try that with a Word file.
+### Version Control Friendly
+Because Markdown is plain text, Git can track every single change you make—who changed what, when, and why. Word's "Track Changes" works for sentences, but Git works for entire projects.
 
-2. **Perfect for websites.** This entire documentation site is written in Markdown. The AI agent converted it into a website automatically.
+### Lightweight
+A Word file with a few pages can be megabytes (especially with images and fonts embedded). A Markdown file is kilobytes—just the text.
 
-3. **Version control friendly.** Because it's plain text, Git can track every change you make—not just "Accept" or "Reject" like Word's Track Changes.
+### Collaboration Without Conflicts
+Multiple people can work on different Markdown files simultaneously. Git helps merge changes cleanly. Word's collaboration often leads to "conflicting copies."
 
 ---
 
@@ -66,10 +64,6 @@ If you've ever used Microsoft Word, you know the frustration: files get corrupte
 ### Code
 ```markdown
 `inline code`
-
-```
-code block
-```
 ```
 
 ### Blockquotes
@@ -81,23 +75,35 @@ That's it. Those are the basics. You can write entire books with just these.
 
 ---
 
+## The Downsides (Being Honest)
+
+### Tables Are Awkward
+Markdown can do simple tables, but they're not pretty in raw form:
+
+```markdown
+| Name | Age |
+|------|-----|
+| Alice | 30 |
+| Bob | 25 |
+```
+
+For complex tables, you'll want to view them rendered (in a Markdown preview or on a website). Raw Markdown tables are functional but not pleasant to read.
+
+### No Rich Formatting
+You can't change fonts, add colors, or do fancy layouts in basic Markdown. For most writing, this is actually a feature—it keeps you focused on content. But if you need a beautifully designed document, you'll need to convert Markdown to something else.
+
+### Images Require Paths
+Unlike Word where you can paste an image directly, Markdown requires you to save the image file and reference its path. This keeps files smaller but adds a step.
+
+---
+
 ## Git: Track Changes for Your Entire Project
 
-You know how Word has "Track Changes"? Git is like that, but:
+You know how Word has "Track Changes"? Git is like that, but much more powerful:
 - It tracks **entire files and folders**, not just sentences
 - It keeps a **complete history** forever
 - It works with **any text file**, not just Word documents
 - Multiple people can work on different parts and **merge changes** cleanly
-
-### How It Compares
-
-| Word Track Changes | Git |
-|-------------------|-----|
-| Tracks word-by-word edits | Tracks file-by-file changes |
-| One document at a time | Entire project (all files) |
-| History can be lost | History is permanent |
-| "Accept All" destroys history | You can always go back |
-| Conflicts are confusing | Conflicts are clear and resolvable |
 
 ### A Typical Workflow
 
@@ -136,17 +142,6 @@ Example:
 > *"Create a new file called notes.md and add a heading and some bullet points"*
 
 The agent will do it for you.
-
----
-
-## Recommended Tools
-
-- **Antigravity**: Edits Markdown with AI assistance
-- **Obsidian**: Great for personal notes and linking ideas
-- **Typora**: A clean Markdown editor with live preview
-- **VS Code**: For more technical users
-
-But honestly, you can write Markdown in Notepad. It's just text.
 
 ---
 
