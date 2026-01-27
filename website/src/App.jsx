@@ -138,6 +138,21 @@ function Layout({ children }) {
 function HomePage() {
   return (
     <div style={{ paddingTop: '2rem' }}>
+      <div style={{
+        background: 'rgba(255, 193, 7, 0.1)',
+        border: '1px solid #ffc107',
+        padding: '1rem',
+        borderRadius: '8px',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        color: '#ffc107'
+      }}>
+        <strong>⚠️ Archive Notice:</strong> This project has been migrated to the
+        <a href="https://github.com/techczech/desktop-vibe-guide" style={{ color: '#ffc107', marginLeft: '0.5rem', fontWeight: 'bold' }}>
+          Desktop Vibecoding Productivity Guide
+        </a>.
+        All future updates will happen there.
+      </div>
       <section className="hero">
         <h1>Build Anything with AI on Windows</h1>
         <p>

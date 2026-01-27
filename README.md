@@ -1,4 +1,9 @@
-# Windows Vibe Coding 🎸
+# Windows Vibe Coding 🎸 (ARCHIVED)
+
+> [!WARNING]
+> **This project is now archived.** It has been redesign and expanded into the **[Desktop Vibecoding Productivity Guide](https://github.com/techczech/desktop-vibe-guide)**, which is suitable for both macOS and Windows. 
+>
+> All future developments will happen in the new repository.
 
 Documentation and resources for high-speed "vibe coding" on Windows using Antigravity and modern AI tools.
 
